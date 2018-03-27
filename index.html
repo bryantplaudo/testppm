@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test 1 PPM Selasa</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel=stylesheet href=jquery.mobile-1.4.5.css>
+	<script src=demos/js/jquery.js></script>
+	<script src=demos/js/jquery.mobile-1.4.5.min.js></script>
+	<script>
+		$(document).ready(function(){
+			$('.halaman').on('change', function(){
+				var url = $(this).val();
+				window.location = url;
+		});});
+		function faktorial(){
+			var i, input, faktor;
+			faktor=1;
+			input=Number(document.getElementById("fak").value);
+			for(i=1; i<=input; i++)  {
+			faktor= faktor*i;
+			}  
+			document.getElementById("hasil").value= faktor;	
+		}
+		function pangkat(){
+			awal = parseInt(document.getElementById("awal").value);
+			pangkat = parseInt(document.getElementById("pangkat").value);
+			hasil = Math.pow(awal,pangkat);
+			document.getElementById("hasilpangkat").value = hasil;
+		}
+		function rgb_convert(){
+			converter = document.getElementById("rgb").value;
+			if(converter == ""){
+				alert("Tolong Kotaknya Di Isi");
+				document.getElementById("rgb").value="";
+				return false;
+			}
+
+			document.getElementById("rubah").style.color=converter;
+		}
+	</script>
+	<style type="text/css">
+		@media all and (max-width: 50em) {
+		  .my-breakpoint .ui-block-a,
+		  .my-breakpoint .ui-block-b,
+		  .my-breakpoint .ui-block-c,
+		  .my-breakpoint .ui-block-d,
+		  .my-breakpoint .ui-block-e {
+		    width: 100%;
+		    float:none;
+		  }
+		}
+	</style>
+</head>
+<body>
+	<div data-role="page" id="menu1">
+		<div data-role="header">
+			<h1> Kalkulator </h1>
+		</div>
+		<div data-role="content">
+		<form>
+			<div class="ui-field-contain">
+		    <label for="select-choice-0" id="select">MENU:</label>
+		    <select name="select-choice-0" class="halaman">
+		        <option value="#menu1" selected>Menu 1</option>
+		        <option value="#menu2">Menu 2</option>
+		        <option value="#menu3">Menu 3</option>
+		    </select>
+		    
+			</div>
+		</form>
+		
+		<h3> Masukkan angka Faktorial: </h3>
+		<input type="text" name="fak" id="fak" placeholder="Input Angka">
+		<input type="text" name="hasil" id="hasil" placeholder="hasil">
+		<button class="ui-btn ui-corner-all" onclick="faktorial()">Hitung Faktorial</button>
+		<br>
+
+		<h3> Masukkan angka awal: </h3>
+		<input type="text" name="awal" id="awal" placeholder="Input Angka">
+		<h3>Masukkan Ingin pangkat berapa?</h3>
+		<input type="text" name="pangkat" id="pangkat" placeholder="pangkat">
+		<input type="text" name="hasilpangkat" id="hasilpangkat" placeholder="hasil">
+		<button class="ui-btn ui-corner-all" onclick="pangkat()">Hitung Pangkat</button>
+		</div>
+	</div>
+
+	<div data-role="page" id="menu2">
+		<div data-role="header">
+			<h1> RGB CONVERTER </h1>
+		</div>
+		<div data-role="content">
+		<form>
+			<div class="ui-field-contain">
+		    <label for="select-choice-0" id="select">MENU:</label>
+		    <select name="select-choice-0" class="halaman">
+		        <option value="#menu1">Menu 1</option>
+		        <option value="#menu2" selected>Menu 2</option>
+		        <option value="#menu3">Menu 3</option>
+		    </select>   
+			</div>
+		</form>
+		<h3>Masukkan Kode RGB:</h3>
+		<input type="text" name="rgb" id="rgb">
+		<button class="ui-btn ui-corner-all" onclick="rgb_convert()">Convert Warna</button><br><br>
+		<textarea id="rubah">Ini Warna Yang Anda Pilih</textarea>
+		</div>
+	</div>
+
+
+	<div data-role="page" id="menu3">
+	<div data-role="header">
+		<h1> Rangkuman </h1>
+	</div>
+	<div data-role="content">
+		<form>
+			<div class="ui-field-contain">
+		    <label for="select-choice-0" id="select">MENU:</label>
+		    <select name="select-choice-0" class="halaman">
+		        <option value="#menu1">Menu 1</option>
+		        <option value="#menu2">Menu 2</option>
+		        <option value="#menu3" selected>Menu 3</option>
+		    </select>
+		    
+			</div>
+		</form>
+		<a href="#mypanel" class="show-page-loading-msg ui-btn ui-corner-all ui-shadow ui-btn-inline">About Lectur</a>
+		<div data-role="panel" data-position="right" id="mypanel">
+		    <p> Nama Mata Kuliah: Pemrograman Perangkat Mobile 
+		    <br><br>
+		    Kode MK: TF4347
+		    <br><br>
+		    Nama Dosen: Anita Nathania P.,S. Kom,MMT
+		    <br><br>
+		    Jadwal:	Selasa, Jam 17.30 - 20.30
+		    <br><br>
+		    Durasi:	180 menit 
+		    <br><br>
+			Jumlah SKS:	3 SKS </p>
+		</div>
+		<a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-transition="pop" style="float:right">List Materi</a>
+		<div data-role="popup" id="popupBasic">
+
+		<table data-role="table" id="table-custom-2" data-mode="columntoggle" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Columns to display..." data-column-popup-theme="a">
+			<thead>
+				<tr>
+					<th data-priority="4">Pertemuan Ke</th>
+					<th data-priority="3">Tanggal</th>
+					<th data-priority="1">Materi</th>
+					<th data-priority="2">Referensi</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>1</th>
+					<td>20 Februari 2018</td>
+					<td>Survey</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th>2</th>
+					<td>27 Februari 2018</td>
+					<td>Sejarah Teknologi</td>
+					<td><a href="https://id.wikipedia.org/wiki/Sejarah_teknologi">Sejarah Teknologi</a></td>
+				</tr>
+				<tr>
+					<th>3</th>
+					<td>6 Maret 2018</td>
+					<td>Pembahasan Github</td>
+					<td><a href="https://github.com">GitHub</a></td>
+				</tr>
+				<tr>
+					<th>4</th>
+					<td>13 Maret 2018</td>
+					<td>Pembahasan jQuery Mobile</td>
+					<td><a href="https://jquerymobile.com">jQM</a></td>
+				</tr>
+				<tr>
+					<th>5</th>
+					<td>20 Maret 2018</td>
+					<td>Pembahasan Angular Js/td>
+					<td><a href="https://angularjs.org">Angular JS</a></td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+		<br><br>
+		<div class="ui-grid-b my-breakpoint">
+			<h1>Rangkuman</h1>
+	  		<div class="ui-block-a">
+	  			<b>Pertama</b> kali pertemuan mata kuliah PPM, kami dijelaskan mengenai sejarah teknologi. Mulai dari 1G sampai generasi sekarang 5G. Lalu pertemuan kedua dilanjutkan dengan pembawaan materi GITHUB. Kami disuruh mencoba untuk membuat akun github dan mencoba kode" github melalui try.git. Disana kami mencoba perintah - perintah yang ada di github dan membuat rangkuman untuk dikumpulkan menjadi tugas. Setelah itu kita diberi PR untuk mengupload file di github dan membuat langkah - langkahnya.
+	  		</div>
+	  		<div class="ui-block-b"><b>Pertemuan kedua</b> dimulai dengan introduction dari jQuery Mobile. Kami belajar mengenai jQuery Mobile untuk mempermudahkan kita ketika akan menggunakan javascript. jQuery adalah javascript yang sudah javascript yang sudah disederhanakan dan kita hanya perlu memanggil fungsi - fungsinya saja.</div>
+	  		<div class="ui-block-c"><b>Pertemuan ketiga</b> kami membahas mengenai angular JS. Angular JS sendiri adalah sebuah framework yang cukup populer di kalangan developer.</div>
+		</div>
+		<form>
+			<br><br><br>
+	    	<label for="slider-1"><h1>Tingkat Pemahaman Anda:</h1></label>
+	   		<input type="range" name="slider-1" id="slider-1" min="0" max="100" value="50">
+	</form>
+	</div>
+	
+</body>
+</html>
